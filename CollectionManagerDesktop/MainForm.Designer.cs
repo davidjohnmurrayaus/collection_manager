@@ -127,14 +127,16 @@
             this.colDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colDetails.Text = "Details";
             // 
-            // frmMain
+            // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(966, 750);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmMain";
+            this.Name = "MainForm";
             this.Text = "Collection Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

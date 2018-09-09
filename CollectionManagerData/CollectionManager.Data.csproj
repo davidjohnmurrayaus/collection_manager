@@ -7,8 +7,8 @@
     <ProjectGuid>{04C8B698-4FAE-4909-A509-94B39E5F917D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>collection_manager</RootNamespace>
-    <AssemblyName>collection_manager</AssemblyName>
+    <RootNamespace>CollectionManager.Data</RootNamespace>
+    <AssemblyName>CollectionManager.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collection.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tag.cs" />

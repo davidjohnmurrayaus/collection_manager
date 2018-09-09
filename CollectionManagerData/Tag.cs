@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 namespace CollectionManager.Data
 {
     /// <summary>
-    /// 
+    /// A tag that can be applied to collection items.
     /// </summary>
     public class Tag
     {
-        public string name;
-        public string category;
+        /// <summary>
+        /// name of this tag.
+        /// </summary>
+        public string Name;
+
+        /// <summary>
+        /// Category that this tag belongs to.
+        /// </summary>
+        public string Category;
     }
 }
