@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionManager.Desktop",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionManager.Data", "CollectionManagerData\CollectionManager.Data.csproj", "{04C8B698-4FAE-4909-A509-94B39E5F917D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionManager.Web", "CollectionManager.Web\CollectionManager.Web.csproj", "{FD0B0861-575C-4637-95AD-642F77E86E16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{04C8B698-4FAE-4909-A509-94B39E5F917D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04C8B698-4FAE-4909-A509-94B39E5F917D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04C8B698-4FAE-4909-A509-94B39E5F917D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0B0861-575C-4637-95AD-642F77E86E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0B0861-575C-4637-95AD-642F77E86E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0B0861-575C-4637-95AD-642F77E86E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0B0861-575C-4637-95AD-642F77E86E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

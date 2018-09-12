@@ -8,7 +8,7 @@ using System.Xml.Linq;
 namespace CollectionManager.Data
 {
     /// <summary>
-    /// 
+    /// A collection of items.
     /// </summary>
     public class Collection
     {
@@ -86,7 +86,7 @@ namespace CollectionManager.Data
             foreach (Item i in items)
             {
                 var itemNode = new XElement("Item");
-                allItemsNode.Add();
+                allItemsNode.Add(itemNode);
 
                 itemNode.Add(new XElement("Name", i.Name));
                 var itemTagsNode = new XElement("Tags");

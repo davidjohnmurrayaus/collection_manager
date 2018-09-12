@@ -15,16 +15,24 @@ namespace CollectionManager.Data
         /// <summary>
         /// Name of the item.
         /// </summary>
-        public string Name;
+        public string Name { get; set; }
 
         /// <summary>
         /// Tags that apply to this item.
         /// </summary>
-        public Dictionary<string, Tag> Tags;
+        public Dictionary<string, Tag> Tags { get; set; }
 
         /// <summary>
         /// Notes on this item.
         /// </summary>
-        public string Notes;
+        public string Notes { get; set; }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public Item()
+        {
+            Tags = new Dictionary<string, Tag>();
+        }
     }
 }
