@@ -24,7 +24,7 @@ namespace CollectionManager.Web
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            RepeaterItems.DataSource = MyCollection.items;
+            RepeaterItems.DataSource = MyCollection.Items;
             RepeaterItems.DataBind();
         }
 

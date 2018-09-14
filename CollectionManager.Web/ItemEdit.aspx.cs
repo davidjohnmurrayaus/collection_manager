@@ -46,7 +46,7 @@ namespace CollectionManager.Web
                 }
                 else
                 {
-                    return MyCollection.items.Where(i => i.Name == ItemId).First();
+                    return MyCollection.Items.Where(i => i.Name == ItemId).First();
                 }
             }
         }
@@ -88,15 +88,15 @@ namespace CollectionManager.Web
             foreach (string rawTagName in TextTags.Text.Split(','))
             {
                 string tagName = rawTagName.Trim();
-                if (MyCollection.tags.Keys.Contains(tagName))
+                if (MyCollection.Tags.Keys.Contains(tagName))
                 {
-                    var myTag = MyCollection.tags[tagName];
+                    var myTag = MyCollection.Tags[tagName];
                     MyItem.Tags.Add(myTag.Name, myTag);
                 }
                 else
                 {
                     var myTag = new Data.Tag() { Name = tagName };
-                    MyCollection.tags.Add(tagName, myTag);
+                    MyCollection.Tags.Add(tagName, myTag);
                     MyItem.Tags.Add(myTag.Name, myTag);
                 }
             }

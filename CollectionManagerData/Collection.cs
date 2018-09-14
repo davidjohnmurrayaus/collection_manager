@@ -15,12 +15,12 @@ namespace CollectionManager.Data
         /// <summary>
         /// Items in the collection
         /// </summary>
-        public List<Item> items = new List<Item>();
+        public List<Item> Items = new List<Item>();
 
         /// <summary>
         /// Tags that can be applied to items in this collection.
         /// </summary>
-        public Dictionary<string, Tag> tags = new Dictionary<string, Tag>();
+        public Dictionary<string, Tag> Tags = new Dictionary<string, Tag>();
 
         /// <summary>
         /// Read collection from XML file.
@@ -36,7 +36,7 @@ namespace CollectionManager.Data
             foreach (var tagNode in from el in xDoc.Descendants("Tag") select el)
             {
                 string name = tagNode.Descendants("Name").First().Value;
-                myCollection.tags.Add(name, new Tag() {
+                myCollection.Tags.Add(name, new Tag() {
                     Name = name,
                     Category = tagNode.Descendants("Category").First().Value
                 });
@@ -45,12 +45,12 @@ namespace CollectionManager.Data
             foreach (var itemNode in xDoc.Descendants("Item"))
             {
                 var tags = new Dictionary<string, Tag>();
-                foreach (var t in itemNode.Descendants("Tags").First().Descendants().Select(t => myCollection.tags[t.Value]))
+                foreach (var t in itemNode.Descendants("Tags").First().Descendants().Select(t => myCollection.Tags[t.Value]))
                 {
                     tags.Add(t.Name, t);
                 }
 
-                myCollection.items.Add(new Item() {
+                myCollection.Items.Add(new Item(myCollection.Tags) {
                     Name = itemNode.Descendants("Name").First().Value,
                     Tags = tags,
                     Notes = itemNode.Descendants("Notes").First().Value
@@ -72,7 +72,7 @@ namespace CollectionManager.Data
 
             var tagsNode = new XElement("Tags");
             root.Add(tagsNode);
-            foreach (Tag t in tags.Values)
+            foreach (Tag t in Tags.Values)
             {
                 var tagNode = new XElement("Tag");
                 tagsNode.Add(tagNode);
@@ -83,7 +83,7 @@ namespace CollectionManager.Data
 
             var allItemsNode = new XElement("Items");
             root.Add(allItemsNode);
-            foreach (Item i in items)
+            foreach (Item i in Items)
             {
                 var itemNode = new XElement("Item");
                 allItemsNode.Add(itemNode);
