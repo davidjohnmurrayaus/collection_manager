@@ -42,6 +42,8 @@
             this.TextTags = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TextNotes = new System.Windows.Forms.TextBox();
+            this.ButtonSave = new System.Windows.Forms.Button();
+            this.ButtonCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -53,7 +55,7 @@
             // TextFilter
             // 
             this.TextFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextFilter.Location = new System.Drawing.Point(3, 8);
+            this.TextFilter.Location = new System.Drawing.Point(3, 5);
             this.TextFilter.Name = "TextFilter";
             this.TextFilter.Size = new System.Drawing.Size(295, 22);
             this.TextFilter.TabIndex = 1;
@@ -62,7 +64,7 @@
             // 
             this.ButtonFilterApply.Location = new System.Drawing.Point(304, 3);
             this.ButtonFilterApply.Name = "ButtonFilterApply";
-            this.ButtonFilterApply.Size = new System.Drawing.Size(75, 33);
+            this.ButtonFilterApply.Size = new System.Drawing.Size(75, 27);
             this.ButtonFilterApply.TabIndex = 2;
             this.ButtonFilterApply.Text = "Filter";
             this.ButtonFilterApply.UseVisualStyleBackColor = true;
@@ -74,24 +76,25 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.ButtonNewItem, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.TextFilter, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ListItems, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ListItems, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.ButtonFilterApply, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.ButtonClearFilter, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ButtonNewItem, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(463, 617);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // ButtonNewItem
             // 
-            this.ButtonNewItem.Location = new System.Drawing.Point(3, 587);
+            this.ButtonNewItem.Location = new System.Drawing.Point(3, 36);
             this.ButtonNewItem.Name = "ButtonNewItem";
             this.ButtonNewItem.Size = new System.Drawing.Size(75, 27);
             this.ButtonNewItem.TabIndex = 5;
@@ -107,7 +110,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.ListItems, 3);
             this.ListItems.FormattingEnabled = true;
             this.ListItems.ItemHeight = 16;
-            this.ListItems.Location = new System.Drawing.Point(3, 42);
+            this.ListItems.Location = new System.Drawing.Point(3, 69);
             this.ListItems.Name = "ListItems";
             this.ListItems.Size = new System.Drawing.Size(457, 532);
             this.ListItems.TabIndex = 4;
@@ -117,7 +120,7 @@
             // 
             this.ButtonClearFilter.Location = new System.Drawing.Point(385, 3);
             this.ButtonClearFilter.Name = "ButtonClearFilter";
-            this.ButtonClearFilter.Size = new System.Drawing.Size(75, 33);
+            this.ButtonClearFilter.Size = new System.Drawing.Size(75, 27);
             this.ButtonClearFilter.TabIndex = 3;
             this.ButtonClearFilter.Text = "Clear";
             this.ButtonClearFilter.UseVisualStyleBackColor = true;
@@ -142,23 +145,27 @@
             // 
             // TableItem
             // 
-            this.TableItem.ColumnCount = 2;
+            this.TableItem.ColumnCount = 3;
             this.TableItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.TableItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TableItem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.TableItem.Controls.Add(this.label1, 0, 0);
             this.TableItem.Controls.Add(this.TextName, 1, 0);
             this.TableItem.Controls.Add(this.label2, 0, 1);
             this.TableItem.Controls.Add(this.TextTags, 1, 1);
             this.TableItem.Controls.Add(this.label3, 0, 2);
             this.TableItem.Controls.Add(this.TextNotes, 0, 3);
+            this.TableItem.Controls.Add(this.ButtonSave, 1, 4);
+            this.TableItem.Controls.Add(this.ButtonCancel, 2, 4);
             this.TableItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TableItem.Location = new System.Drawing.Point(0, 0);
             this.TableItem.Name = "TableItem";
-            this.TableItem.RowCount = 4;
+            this.TableItem.RowCount = 5;
             this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableItem.Size = new System.Drawing.Size(499, 617);
             this.TableItem.TabIndex = 0;
             // 
@@ -176,11 +183,11 @@
             // 
             this.TextName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.TableItem.SetColumnSpan(this.TextName, 2);
             this.TextName.Location = new System.Drawing.Point(58, 3);
             this.TextName.Name = "TextName";
             this.TextName.Size = new System.Drawing.Size(438, 22);
             this.TextName.TabIndex = 1;
-            this.TextName.TextChanged += new System.EventHandler(this.TextName_TextChanged);
             // 
             // label2
             // 
@@ -196,11 +203,11 @@
             // 
             this.TextTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.TableItem.SetColumnSpan(this.TextTags, 2);
             this.TextTags.Location = new System.Drawing.Point(58, 31);
             this.TextTags.Name = "TextTags";
             this.TextTags.Size = new System.Drawing.Size(438, 22);
             this.TextTags.TabIndex = 3;
-            this.TextTags.TextChanged += new System.EventHandler(this.TextTags_TextChanged);
             // 
             // label3
             // 
@@ -217,13 +224,33 @@
             this.TextNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TableItem.SetColumnSpan(this.TextNotes, 2);
+            this.TableItem.SetColumnSpan(this.TextNotes, 3);
             this.TextNotes.Location = new System.Drawing.Point(3, 76);
             this.TextNotes.Multiline = true;
             this.TextNotes.Name = "TextNotes";
-            this.TextNotes.Size = new System.Drawing.Size(493, 538);
+            this.TextNotes.Size = new System.Drawing.Size(493, 505);
             this.TextNotes.TabIndex = 5;
-            this.TextNotes.TextChanged += new System.EventHandler(this.TextNotes_TextChanged);
+            // 
+            // ButtonSave
+            // 
+            this.ButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSave.Location = new System.Drawing.Point(340, 587);
+            this.ButtonSave.Name = "ButtonSave";
+            this.ButtonSave.Size = new System.Drawing.Size(75, 27);
+            this.ButtonSave.TabIndex = 6;
+            this.ButtonSave.Text = "Save";
+            this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
+            // 
+            // ButtonCancel
+            // 
+            this.ButtonCancel.Location = new System.Drawing.Point(421, 587);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(75, 27);
+            this.ButtonCancel.TabIndex = 7;
+            this.ButtonCancel.Text = "Cancel";
+            this.ButtonCancel.UseVisualStyleBackColor = true;
+            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // MainForm
             // 
@@ -261,6 +288,8 @@
         private System.Windows.Forms.TextBox TextTags;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TextNotes;
+        private System.Windows.Forms.Button ButtonSave;
+        private System.Windows.Forms.Button ButtonCancel;
     }
 }
 

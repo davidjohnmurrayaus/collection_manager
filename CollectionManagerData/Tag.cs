@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CollectionManager.Data
 {
@@ -20,5 +21,42 @@ namespace CollectionManager.Data
         /// Category that this tag belongs to.
         /// </summary>
         public string Category;
+
+        /// <summary>
+        /// Conveet tag to xml node.
+        /// </summary>
+        /// <returns></returns>
+        internal XElement AsXmlNode()
+        {
+            var tagNode = new XElement("Tag");
+
+            tagNode.Add(new XElement("Name", Name));
+            tagNode.Add(new XElement("Category", Category));
+
+            return tagNode;
+        }
+
+        /// <summary>
+        /// Convert xml to tag.
+        /// </summary>
+        /// <param name="tagNode"></param>
+        /// <returns></returns>
+        internal static Tag FromXml(XElement tagNode)
+        {
+            return new Tag()
+            {
+                Name = tagNode.Elements("Name").First().Value,
+                Category = tagNode.Elements("Category").First().Value
+            };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

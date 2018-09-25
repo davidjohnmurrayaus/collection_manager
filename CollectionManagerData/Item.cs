@@ -23,7 +23,7 @@ namespace CollectionManager.Data
         public Dictionary<string, Tag> Tags { get; set; }
 
         /// <summary>
-        /// 
+        /// Access the tags as a comma delimited string.
         /// </summary>
         public string TagsString
         {
@@ -37,16 +37,18 @@ namespace CollectionManager.Data
                 foreach (string rawTagName in value.Split(','))
                 {
                     string tagName = rawTagName.Trim();
-                    if (availibleTags.Keys.Contains(tagName))
+                    if (!availibleTags.Keys.Contains(tagName))
                     {
-                        Tags.Add(tagName, availibleTags[tagName]);
+                        availibleTags.Add(tagName, new Tag() { Name = tagName });
                     }
+                    Tags.Add(tagName, availibleTags[tagName]);
+
                 }
             }
         }
 
         /// <summary>
-        /// 
+        /// All of the known tags.
         /// </summary>
         protected Dictionary<string, Tag> availibleTags;
 
@@ -81,7 +83,29 @@ namespace CollectionManager.Data
         }
 
         /// <summary>
-        /// 
+        /// Convert item to xml.
+        /// </summary>
+        /// <returns></returns>
+        internal XElement AsXmlNode()
+        {
+            var itemNode = new XElement("Item");
+
+            itemNode.Add(new XElement("Name", Name));
+
+            var itemTagsNode = new XElement("Tags");
+            foreach (var t in Tags.Values)
+            {
+                itemTagsNode.Add(t.AsXmlNode());
+            }
+            itemNode.Add(itemTagsNode);
+
+            itemNode.Add(new XElement("Notes", Notes));
+
+            return itemNode;
+        }
+
+        /// <summary>
+        /// Object is equal if all fields match.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -104,7 +128,7 @@ namespace CollectionManager.Data
         }
 
         /// <summary>
-        /// 
+        /// Hash code is based on all fields.
         /// </summary>
         /// <returns></returns>
         public override int GetHashCode()

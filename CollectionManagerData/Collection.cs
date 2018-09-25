@@ -31,26 +31,28 @@ namespace CollectionManager.Data
         {
             var myCollection = new Collection();
             var xDoc = XDocument.Load(filePath);
-            var root = xDoc.FirstNode;
+            var root = xDoc.FirstNode as XElement;
 
-            foreach (var tagNode in from el in xDoc.Descendants("Tag") select el)
+            var tagsNode = root.Element("Tags");
+            foreach (var tagNode in from el in tagsNode.Elements("Tag") select el)
             {
-                string name = tagNode.Descendants("Name").First().Value;
-                myCollection.Tags.Add(name, new Tag() {
-                    Name = name,
-                    Category = tagNode.Descendants("Category").First().Value
-                });
+                var tag = Data.Tag.FromXml(tagNode);
+                myCollection.Tags.Add(tag.Name, tag);
             }
 
-            foreach (var itemNode in xDoc.Descendants("Item"))
+            var itemsNode = root.Element("Items");
+            foreach (var itemNode in itemsNode.Elements("Item"))
             {
                 var tags = new Dictionary<string, Tag>();
-                foreach (var t in itemNode.Descendants("Tags").First().Descendants().Select(t => myCollection.Tags[t.Value]))
+                var itemTagsNode = itemNode.Element("Tags");
+                foreach (var tagNode in itemTagsNode.Elements("Tag"))
                 {
+                    var t = Data.Tag.FromXml(tagNode);
                     tags.Add(t.Name, t);
                 }
 
-                myCollection.Items.Add(new Item(myCollection.Tags) {
+                myCollection.Items.Add(new Item(myCollection.Tags)
+                {
                     Name = itemNode.Descendants("Name").First().Value,
                     Tags = tags,
                     Notes = itemNode.Descendants("Notes").First().Value
@@ -74,28 +76,14 @@ namespace CollectionManager.Data
             root.Add(tagsNode);
             foreach (Tag t in Tags.Values)
             {
-                var tagNode = new XElement("Tag");
-                tagsNode.Add(tagNode);
-
-                tagNode.Add(new XElement("Name", t.Name));
-                tagNode.Add(new XElement("Category", t.Category));
+                tagsNode.Add(t.AsXmlNode());
             }
 
             var allItemsNode = new XElement("Items");
             root.Add(allItemsNode);
             foreach (Item i in Items)
             {
-                var itemNode = new XElement("Item");
-                allItemsNode.Add(itemNode);
-
-                itemNode.Add(new XElement("Name", i.Name));
-                var itemTagsNode = new XElement("Tags");
-                itemNode.Add(itemTagsNode);
-                foreach (string t in i.Tags.Keys)
-                {
-                    itemTagsNode.Add("Tag", t);
-                }
-                itemNode.Add(new XElement("Notes", i.Notes));
+                allItemsNode.Add(i.AsXmlNode());
             }
 
             xDoc.Save(filePath);

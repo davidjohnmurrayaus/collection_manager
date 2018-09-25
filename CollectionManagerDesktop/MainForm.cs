@@ -56,12 +56,50 @@ namespace CollectionManagerDesktop
                     disableItemUpdates = true;
                     ListItems.Items.Add(newItem);
                     ListItems.SelectedItem = newItem;
+                    PopulateEditControls();
                 }
                 finally
                 {
                     disableItemUpdates = false;
                 }
             }
+        }
+
+        /// <summary>
+        /// Put items in list box.
+        /// </summary>
+        void PopulateItems()
+        {
+            try
+            {
+                disableItemUpdates = true;
+                ListItems.Items.Clear();
+                foreach (var i in MyCollection.Items)
+                {
+                    if (string.IsNullOrWhiteSpace(TextFilter.Text))
+                    {
+                        ListItems.Items.Add(i);
+                    }
+                    else if (i.ToString().ToUpper().Contains(TextFilter.Text.ToUpper()))
+                    {
+                        ListItems.Items.Add(i);
+                    }
+                }
+            }
+            finally
+            {
+                disableItemUpdates = false;
+            }
+        }
+
+        /// <summary>
+        /// Put values of item into edit controls.
+        /// </summary>
+        void PopulateEditControls()
+        {
+            TextName.Text = CurrentItem.Name;
+            TextTags.Text = CurrentItem.TagsString;
+            TextNotes.Text = CurrentItem.Notes;
         }
         #endregion
 
@@ -106,18 +144,7 @@ namespace CollectionManagerDesktop
         /// <param name="e"></param>
         private void ButtonFilterApply_Click(object sender, EventArgs e)
         {
-            ListItems.Items.Clear();
-            foreach (var i in MyCollection.Items)
-            {
-                if (TextFilter.Text.Length == 0)
-                {
-                    ListItems.Items.Add(i);
-                }
-                else if (i.ToString().Contains(TextFilter.Text))
-                {
-                    ListItems.Items.Add(i);
-                }
-            }
+            PopulateItems();
         }
 
         /// <summary>
@@ -127,11 +154,8 @@ namespace CollectionManagerDesktop
         /// <param name="e"></param>
         private void ButtonClearFilter_Click(object sender, EventArgs e)
         {
-            ListItems.Items.Clear();
-            foreach (var i in MyCollection.Items)
-            {
-                ListItems.Items.Add(i);
-            }
+            TextFilter.Text = "";
+            PopulateItems();
         }
 
         /// <summary>
@@ -158,9 +182,7 @@ namespace CollectionManagerDesktop
                 try
                 {
                     disableItemUpdates = true;
-                    TextName.Text = CurrentItem.Name;
-                    TextTags.Text = CurrentItem.TagsString;
-                    TextNotes.Text = CurrentItem.Notes;
+                    PopulateEditControls();
                 }
                 finally
                 {
@@ -170,54 +192,28 @@ namespace CollectionManagerDesktop
         }
 
         /// <summary>
-        /// 
+        /// Save changes to backing object.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TextName_TextChanged(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (!disableItemUpdates)
-            {
-                if (CurrentItem == null)
-                {
-                    CreateAndSelectItem();
-                }
-                CurrentItem.Name = TextName.Text;
-            }
+            int index = ListItems.SelectedIndex;
+            CurrentItem.Name = TextName.Text;
+            CurrentItem.TagsString = TextTags.Text;
+            CurrentItem.Notes = TextNotes.Text;
+            PopulateItems();
+            ListItems.SelectedIndex = index;
         }
 
         /// <summary>
-        /// 
+        /// Abandon changes to item.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TextTags_TextChanged(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
-            if (!disableItemUpdates)
-            {
-                if (CurrentItem == null)
-                {
-                    CreateAndSelectItem();
-                }
-                CurrentItem.TagsString = TextTags.Text;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TextNotes_TextChanged(object sender, EventArgs e)
-        {
-            if (!disableItemUpdates)
-            {
-                if (CurrentItem == null)
-                {
-                    CreateAndSelectItem();
-                }
-                CurrentItem.Notes = TextNotes.Text;
-            }
+            PopulateEditControls();
         }
         #endregion
     }
