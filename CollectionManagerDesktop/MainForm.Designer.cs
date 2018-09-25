@@ -31,9 +31,9 @@
             this.TextFilter = new System.Windows.Forms.TextBox();
             this.ButtonFilterApply = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ButtonNewItem = new System.Windows.Forms.Button();
             this.ListItems = new System.Windows.Forms.ListBox();
             this.ButtonClearFilter = new System.Windows.Forms.Button();
+            this.ButtonNewItem = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.TableItem = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,14 +55,14 @@
             // TextFilter
             // 
             this.TextFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextFilter.Location = new System.Drawing.Point(3, 5);
+            this.TextFilter.Location = new System.Drawing.Point(3, 589);
             this.TextFilter.Name = "TextFilter";
-            this.TextFilter.Size = new System.Drawing.Size(295, 22);
+            this.TextFilter.Size = new System.Drawing.Size(340, 20);
             this.TextFilter.TabIndex = 1;
             // 
             // ButtonFilterApply
             // 
-            this.ButtonFilterApply.Location = new System.Drawing.Point(304, 3);
+            this.ButtonFilterApply.Location = new System.Drawing.Point(349, 586);
             this.ButtonFilterApply.Name = "ButtonFilterApply";
             this.ButtonFilterApply.Size = new System.Drawing.Size(75, 27);
             this.ButtonFilterApply.TabIndex = 2;
@@ -76,31 +76,21 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.TextFilter, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ListItems, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.ButtonFilterApply, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ButtonClearFilter, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ButtonNewItem, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ListItems, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.TextFilter, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ButtonFilterApply, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ButtonClearFilter, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ButtonNewItem, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(463, 617);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(508, 616);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // ButtonNewItem
-            // 
-            this.ButtonNewItem.Location = new System.Drawing.Point(3, 36);
-            this.ButtonNewItem.Name = "ButtonNewItem";
-            this.ButtonNewItem.Size = new System.Drawing.Size(75, 27);
-            this.ButtonNewItem.TabIndex = 5;
-            this.ButtonNewItem.Text = "New";
-            this.ButtonNewItem.UseVisualStyleBackColor = true;
-            this.ButtonNewItem.Click += new System.EventHandler(this.ButtonNewItem_Click);
             // 
             // ListItems
             // 
@@ -109,22 +99,31 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.ListItems, 3);
             this.ListItems.FormattingEnabled = true;
-            this.ListItems.ItemHeight = 16;
-            this.ListItems.Location = new System.Drawing.Point(3, 69);
+            this.ListItems.Location = new System.Drawing.Point(3, 36);
             this.ListItems.Name = "ListItems";
-            this.ListItems.Size = new System.Drawing.Size(457, 532);
+            this.ListItems.Size = new System.Drawing.Size(502, 537);
             this.ListItems.TabIndex = 4;
             this.ListItems.SelectedIndexChanged += new System.EventHandler(this.ListItems_SelectedIndexChanged);
             // 
             // ButtonClearFilter
             // 
-            this.ButtonClearFilter.Location = new System.Drawing.Point(385, 3);
+            this.ButtonClearFilter.Location = new System.Drawing.Point(430, 586);
             this.ButtonClearFilter.Name = "ButtonClearFilter";
             this.ButtonClearFilter.Size = new System.Drawing.Size(75, 27);
             this.ButtonClearFilter.TabIndex = 3;
             this.ButtonClearFilter.Text = "Clear";
             this.ButtonClearFilter.UseVisualStyleBackColor = true;
             this.ButtonClearFilter.Click += new System.EventHandler(this.ButtonClearFilter_Click);
+            // 
+            // ButtonNewItem
+            // 
+            this.ButtonNewItem.Location = new System.Drawing.Point(430, 3);
+            this.ButtonNewItem.Name = "ButtonNewItem";
+            this.ButtonNewItem.Size = new System.Drawing.Size(75, 27);
+            this.ButtonNewItem.TabIndex = 5;
+            this.ButtonNewItem.Text = "Add New";
+            this.ButtonNewItem.UseVisualStyleBackColor = true;
+            this.ButtonNewItem.Click += new System.EventHandler(this.ButtonNewItem_Click);
             // 
             // splitContainer1
             // 
@@ -139,8 +138,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.TableItem);
-            this.splitContainer1.Size = new System.Drawing.Size(966, 617);
-            this.splitContainer1.SplitterDistance = 463;
+            this.splitContainer1.Size = new System.Drawing.Size(1016, 616);
+            this.splitContainer1.SplitterDistance = 508;
             this.splitContainer1.TabIndex = 4;
             // 
             // TableItem
@@ -166,16 +165,16 @@
             this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.TableItem.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TableItem.Size = new System.Drawing.Size(499, 617);
+            this.TableItem.Size = new System.Drawing.Size(504, 616);
             this.TableItem.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Location = new System.Drawing.Point(3, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
@@ -184,18 +183,18 @@
             this.TextName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TableItem.SetColumnSpan(this.TextName, 2);
-            this.TextName.Location = new System.Drawing.Point(58, 3);
+            this.TextName.Location = new System.Drawing.Point(47, 3);
             this.TextName.Name = "TextName";
-            this.TextName.Size = new System.Drawing.Size(438, 22);
+            this.TextName.Size = new System.Drawing.Size(454, 20);
             this.TextName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 33);
+            this.label2.Location = new System.Drawing.Point(3, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tags:";
             // 
@@ -204,18 +203,18 @@
             this.TextTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TableItem.SetColumnSpan(this.TextTags, 2);
-            this.TextTags.Location = new System.Drawing.Point(58, 31);
+            this.TextTags.Location = new System.Drawing.Point(47, 29);
             this.TextTags.Name = "TextTags";
-            this.TextTags.Size = new System.Drawing.Size(438, 22);
+            this.TextTags.Size = new System.Drawing.Size(454, 20);
             this.TextTags.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 56);
+            this.label3.Location = new System.Drawing.Point(3, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Notes:";
             // 
@@ -225,16 +224,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TableItem.SetColumnSpan(this.TextNotes, 3);
-            this.TextNotes.Location = new System.Drawing.Point(3, 76);
+            this.TextNotes.Location = new System.Drawing.Point(3, 68);
             this.TextNotes.Multiline = true;
             this.TextNotes.Name = "TextNotes";
-            this.TextNotes.Size = new System.Drawing.Size(493, 505);
+            this.TextNotes.Size = new System.Drawing.Size(498, 512);
             this.TextNotes.TabIndex = 5;
             // 
             // ButtonSave
             // 
             this.ButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonSave.Location = new System.Drawing.Point(340, 587);
+            this.ButtonSave.Location = new System.Drawing.Point(345, 586);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Size = new System.Drawing.Size(75, 27);
             this.ButtonSave.TabIndex = 6;
@@ -244,7 +243,7 @@
             // 
             // ButtonCancel
             // 
-            this.ButtonCancel.Location = new System.Drawing.Point(421, 587);
+            this.ButtonCancel.Location = new System.Drawing.Point(426, 586);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(75, 27);
             this.ButtonCancel.TabIndex = 7;
@@ -255,7 +254,7 @@
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(966, 617);
+            this.ClientSize = new System.Drawing.Size(1016, 616);
             this.Controls.Add(this.splitContainer1);
             this.Name = "MainForm";
             this.Text = "Collection Manager";
